@@ -81,7 +81,7 @@ class ScribdDownloader {
                 document.body.innerHTML = document.querySelector("div.outer_page_container").innerHTML
             })
             
-            await directoryIo.create(path.dirname(options.path))
+            // await directoryIo.create(path.dirname(options.path))
             const pdf = await page.pdf(options);
             console.log(pdf)
 
