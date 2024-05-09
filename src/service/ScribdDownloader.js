@@ -66,7 +66,7 @@ class ScribdDownloader {
 
             // pdf setting
             let options = {
-                path: `${output}/${id}.pdf`,
+                // path: `${output}/${id}.pdf`,
                 printBackground: true,
             }
             let first_page = await page.$("div.outer_page_container div[id^='outer_page_']")
@@ -82,8 +82,8 @@ class ScribdDownloader {
             })
             
             await directoryIo.create(path.dirname(options.path))
-            await page.pdf(options);
-            console.log(`Generated: ${options.path}`)
+            const pdf = await page.pdf(options);
+            console.log(pdf)
 
             await page.close()
             await puppeteerSg.close()
